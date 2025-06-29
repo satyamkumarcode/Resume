@@ -505,13 +505,15 @@
             transform-style: preserve-3d;
         }
 
-        .app-icon:hover,
-        .app-icon.selected {
+        @media (hover: hover) and (pointer: fine) {
+          .app-icon:hover,
+          .app-icon.selected {
             transform: scale(1.3) rotateY(15deg) translateZ(20px);
             z-index: 1000;
             box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.6), 0 0 0 4px #fff;
             border: 3px solid #fff;
             animation-play-state: paused;
+          }
         }
 
         .app-icon.selected::after {
@@ -2112,6 +2114,31 @@
           color: #fff;
           border: 1px solid rgba(148,163,184,0.1);
         }
+        .about-socials {
+          display: flex;
+          justify-content: center;
+          gap: 32px;
+          margin-top: 2rem;
+        }
+        .about-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          border: none;
+          color: var(--accent-secondary);
+          font-size: 2rem;
+          transition: color 0.2s;
+          text-decoration: none;
+        }
+        .about-link:hover {
+          color: var(--accent-primary);
+        }
+        .about-icon {
+          width: 36px;
+          height: 36px;
+          display: block;
+        }
     </style>
 </head>
 <body>
@@ -2253,6 +2280,14 @@
                         As a passionate Data Science & AI Engineer, I thrive on solving real-world problems with innovative solutions. My strong foundation in AI, machine learning, data analysis, and programming (especially Python) empowers me to deliver impactful results. I have hands-on experience in developing end-to-end data pipelines, building predictive models, and visualizing insights for business growth.<br><br>
                         I am always eager to learn, collaborate, and take on new challenges—whether independently or as part of a dynamic team. Let's connect and create something extraordinary together!
                     </p>
+                    <div class="about-socials">
+                        <a href="https://github.com/satyamkumarcode" class="about-link" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg class="about-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.7 2.1 2.7 1.5.1-.7.4-1.1.7-1.4-2.7-.3-5.5-1.3-5.5-5.7 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.4-2.8 5.4-5.5 5.7.4.3.8 1 .8 2v3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/satyamkumarcode/" class="about-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg class="about-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.3c-1 0-1.7-.8-1.7-1.7s.7-1.7 1.7-1.7c1 0 1.7.8 1.7 1.7s-.7 1.7-1.7 1.7zm15.5 10.3h-3v-4.5c0-1.1 0-2.5-1.5-2.5s-1.7 1.2-1.7 2.4v4.6h-3v-9h2.9v1.2h.1c.4-.7 1.3-1.5 2.7-1.5 2.9 0 3.4 1.9 3.4 4.3v5z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
