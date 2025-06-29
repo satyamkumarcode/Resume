@@ -435,109 +435,98 @@
             padding-right: 5%;
         }
 
+        /* Responsive Orbiting Tech Icons and Profile Image */
         .circular-logo-container {
-            position: relative;
-            width: 380px;
-            height: 380px;
-            perspective: 1000px;
+          position: relative;
+          width: 32vw;
+          height: 32vw;
+          min-width: 180px;
+          min-height: 180px;
+          max-width: 380px;
+          max-height: 380px;
+          margin: 0 auto;
         }
-
-        .main-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 25px 50px rgba(108, 92, 231, 0.4), 0 0 0 8px rgba(255,255,255,0.1);
-            z-index: 10;
-            animation: float3D 6s ease-in-out infinite;
-            transform-style: preserve-3d;
-        }
-
-        .avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 80px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
-            animation: avatarBounce 4s ease-in-out infinite;
-        }
-
         .orbit-container {
-            position: relative;
-            width: 300px;   /* 2 * orbitRadius + iconSize */
-            height: 300px;
-            margin: 0 auto;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-width: 120px;
+          min-height: 120px;
+          max-width: 100vw;
+          max-height: 100vw;
+          margin: 0 auto;
         }
-
+        .main-circle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 55%;
+          height: 55%;
+          background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 25px 50px rgba(108, 92, 231, 0.4), 0 0 0 8px rgba(255,255,255,0.1), 0 0 0 6px #6366f1;
+          z-index: 10;
+          animation: float3D 6s ease-in-out infinite;
+          transform-style: preserve-3d;
+        }
+        .avatar {
+          width: 80%;
+          height: 80%;
+          border-radius: 50%;
+          background: #f0f0f0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 80px;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 0 0 6px #fff, 0 8px 24px rgba(0,0,0,0.12);
+          animation: avatarBounce 4s ease-in-out infinite;
+        }
         .app-icon {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 0 3px rgba(255,255,255,0.2);
-            border: 2px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
-            animation: iconFloat 4s ease-in-out infinite;
-            transform-style: preserve-3d;
+          position: absolute;
+          width: 16%;
+          height: 16%;
+          min-width: 28px;
+          min-height: 28px;
+          max-width: 56px;
+          max-height: 56px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2vw;
+          background: #fff;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.18), 0 0 0 2px rgba(255,255,255,0.18);
+          border: 2px solid rgba(255,255,255,0.3);
+          padding: 8%;
+          transition: box-shadow 0.2s, transform 0.2s;
+          color: #222;
+          z-index: 2;
         }
-
-        @media (hover: hover) and (pointer: fine) {
-          .app-icon:hover,
-          .app-icon.selected {
-            transform: scale(1.3) rotateY(15deg) translateZ(20px);
-            z-index: 1000;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.6), 0 0 0 4px #fff;
-            border: 3px solid #fff;
-            animation-play-state: paused;
-          }
+        .app-icon img, .app-icon svg {
+          width: 60%;
+          height: 60%;
+          display: block;
         }
-
-        .app-icon.selected::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            width: 20px;
-            height: 20px;
-            background: linear-gradient(135deg, #00ff88, #00cc6a);
-            border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 10px rgba(0,255,136,0.5);
-            animation: pulse 1.5s ease-in-out infinite;
+        @media (max-width: 900px) {
+          .circular-logo-container { width: 48vw; height: 48vw; min-width: 140px; min-height: 140px; }
+          .main-circle { width: 60%; height: 60%; }
+          .avatar { width: 80%; height: 80%; }
+          .app-icon { min-width: 22px; min-height: 22px; max-width: 38px; max-height: 38px; font-size: 1.2rem; padding: 4%; }
+          .app-icon img, .app-icon svg { width: 60%; height: 60%; }
         }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+        @media (max-width: 480px) {
+          .circular-logo-container { width: 80vw; height: 80vw; min-width: 100px; min-height: 100px; }
+          .main-circle { width: 70%; height: 70%; }
+          .avatar { width: 80%; height: 80%; }
+          .app-icon { min-width: 16px; min-height: 16px; max-width: 28px; max-height: 28px; font-size: 1rem; padding: 2%; }
+          .app-icon img, .app-icon svg { width: 60%; height: 60%; }
         }
-
-        .app-icon.python { background: linear-gradient(135deg, #3776ab, #ffd43b); }
-        .app-icon.agentic-ai { background: linear-gradient(135deg, #8e44ad, #00c3ff); }
-        .app-icon.flask { background: linear-gradient(135deg, #000000, #43e97b); }
-        .app-icon.tensorflow { background: linear-gradient(135deg, #ff6f00, #ff8f00); }
-        .app-icon.pandas { background: linear-gradient(135deg, #150458, #130654); }
-        .app-icon.powerbi { background: linear-gradient(135deg, #f2c811, #fbc2eb); }
-        .app-icon.sql { background: linear-gradient(135deg, #336791, #4479a1); }
-        .app-icon.git { background: linear-gradient(135deg, #f05032, #e94e1b); }
 
         .app-name {
             display: none;
@@ -2134,6 +2123,81 @@
           height: 36px;
           display: block;
         }
+
+        /* --- Orbiting Tech Icons Improvements --- */
+        .orbit-container {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-width: 200px;
+          min-height: 200px;
+          max-width: 380px;
+          max-height: 380px;
+          margin: 0 auto;
+        }
+        .app-icon {
+          position: absolute;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          background: #fff;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.18), 0 0 0 2px rgba(255,255,255,0.18);
+          border: 2px solid rgba(255,255,255,0.3);
+          padding: 8px;
+          transition: box-shadow 0.2s, transform 0.2s;
+          color: #222;
+          z-index: 2;
+        }
+        .app-icon img, .app-icon svg {
+          width: 32px;
+          height: 32px;
+          display: block;
+        }
+        @media (max-width: 900px) {
+          .orbit-container { max-width: 260px; max-height: 260px; }
+          .app-icon { width: 38px; height: 38px; font-size: 1.2rem; padding: 4px; }
+          .app-icon img, .app-icon svg { width: 22px; height: 22px; }
+        }
+        @media (max-width: 480px) {
+          .orbit-container { max-width: 180px; max-height: 180px; }
+          .app-icon { width: 28px; height: 28px; font-size: 1rem; padding: 2px; }
+          .app-icon img, .app-icon svg { width: 14px; height: 14px; }
+        }
+        .main-circle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 200px;
+          height: 200px;
+          background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 25px 50px rgba(108, 92, 231, 0.4), 0 0 0 8px rgba(255,255,255,0.1), 0 0 0 6px #6366f1;
+          z-index: 10;
+          animation: float3D 6s ease-in-out infinite;
+          transform-style: preserve-3d;
+        }
+        .avatar {
+          width: 160px;
+          height: 160px;
+          border-radius: 50%;
+          background: #f0f0f0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 80px;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 0 0 6px #fff, 0 8px 24px rgba(0,0,0,0.12);
+          animation: avatarBounce 4s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -2219,14 +2283,14 @@
                     </div>
 
                     <div class="orbit-container">
-                        <div class="app-icon python" data-name="Python Programming" data-description="Advanced Python development for data science, machine learning, web development, and automation. Expertise in frameworks like Django, Flask, FastAPI, and scientific computing libraries." data-icon="🐍" data-topcolor="#3776ab" data-gradient="linear-gradient(135deg, #3776ab 0%, #ffd43b 100%)" data-link="#">🐍</div>
-                        <div class="app-icon agentic-ai" data-name="Agentic AI" data-description="Building autonomous AI agents and workflows using LLMs, prompt engineering, and orchestration frameworks. Focus on real-world automation and decision-making." data-icon="🤖" data-topcolor="#8e44ad" data-gradient="linear-gradient(135deg, #8e44ad 0%, #00c3ff 100%)" data-link="#">🤖</div>
-                        <div class="app-icon flask" data-name="Web Development with Flask" data-description="Developing modern web applications and APIs using Python Flask. RESTful services, Jinja templating, and integration with databases and frontend frameworks." data-icon="🌐" data-topcolor="#000000" data-gradient="linear-gradient(135deg, #000000 0%, #43e97b 100%)" data-link="#">🌐</div>
-                        <div class="app-icon tensorflow" data-name="Machine Learning" data-description="Deep learning and neural networks using TensorFlow, Keras, PyTorch. Computer vision, NLP, and predictive modeling for business solutions." data-icon="🧠" data-topcolor="#ff6f00" data-gradient="linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%)" data-link="#">🧠</div>
-                        <div class="app-icon pandas" data-name="Data Analysis" data-description="Data manipulation and analysis using Pandas, NumPy, and Matplotlib. Statistical analysis, data cleaning, feature engineering, and exploratory data analysis." data-icon="📊" data-topcolor="#150458" data-gradient="linear-gradient(135deg, #150458 0%, #130654 100%)" data-link="#">📊</div>
-                        <div class="app-icon powerbi" data-name="Power BI Dashboards" data-description="Business intelligence dashboards and data visualization" data-icon="📈" data-topcolor="#f2c811" data-gradient="linear-gradient(135deg, #f2c811 0%, #fbc2eb 100%)" data-link="#">📈</div>
-                        <div class="app-icon sql" data-name="Database Management" data-description="Advanced SQL for database design, optimization, and management. Experience with MySQL, PostgreSQL, MongoDB, and data warehousing solutions." data-icon="🗄️" data-topcolor="#336791" data-gradient="linear-gradient(135deg, #336791 0%, #4479a1 100%)" data-link="#">🗄️</div>
-                        <div class="app-icon git" data-name="Version Control & DevOps" data-description="Git version control, CI/CD pipelines, Docker containerization, and cloud deployment. Collaborative development and automated testing workflows." data-icon="🔧" data-topcolor="#f05032" data-gradient="linear-gradient(135deg, #f05032 0%, #e94e1b 100%)" data-link="#">🔧</div>
+                        <div class="app-icon python" aria-label="Python Programming" title="Python Programming" data-name="Python Programming" data-description="Advanced Python development for data science, machine learning, web development, and automation. Expertise in frameworks like Django, Flask, FastAPI, and scientific computing libraries." data-icon="🐍" data-topcolor="#3776ab" data-gradient="linear-gradient(135deg, #3776ab 0%, #ffd43b 100%)" data-link="#">🐍</div>
+                        <div class="app-icon agentic-ai" aria-label="Agentic AI" title="Agentic AI" data-name="Agentic AI" data-description="Building autonomous AI agents and workflows using LLMs, prompt engineering, and orchestration frameworks. Focus on real-world automation and decision-making." data-icon="🤖" data-topcolor="#8e44ad" data-gradient="linear-gradient(135deg, #8e44ad 0%, #00c3ff 100%)" data-link="#">🤖</div>
+                        <div class="app-icon flask" aria-label="Web Development with Flask" title="Web Development with Flask" data-name="Web Development with Flask" data-description="Developing modern web applications and APIs using Python Flask. RESTful services, Jinja templating, and integration with databases and frontend frameworks." data-icon="🌐" data-topcolor="#000000" data-gradient="linear-gradient(135deg, #000000 0%, #43e97b 100%)" data-link="#">🌐</div>
+                        <div class="app-icon tensorflow" aria-label="Machine Learning" title="Machine Learning" data-name="Machine Learning" data-description="Deep learning and neural networks using TensorFlow, Keras, PyTorch. Computer vision, NLP, and predictive modeling for business solutions." data-icon="🧠" data-topcolor="#ff6f00" data-gradient="linear-gradient(135deg, #ff6f00 0%, #ff8f00 100%)" data-link="#">🧠</div>
+                        <div class="app-icon pandas" aria-label="Data Analysis" title="Data Analysis" data-name="Data Analysis" data-description="Data manipulation and analysis using Pandas, NumPy, and Matplotlib. Statistical analysis, data cleaning, feature engineering, and exploratory data analysis." data-icon="📊" data-topcolor="#150458" data-gradient="linear-gradient(135deg, #150458 0%, #130654 100%)" data-link="#">📊</div>
+                        <div class="app-icon powerbi" aria-label="Power BI Dashboards" title="Power BI Dashboards" data-name="Power BI Dashboards" data-description="Business intelligence dashboards and data visualization" data-icon="📈" data-topcolor="#f2c811" data-gradient="linear-gradient(135deg, #f2c811 0%, #fbc2eb 100%)" data-link="#">📈</div>
+                        <div class="app-icon sql" aria-label="Database Management" title="Database Management" data-name="Database Management" data-description="Advanced SQL for database design, optimization, and management. Experience with MySQL, PostgreSQL, MongoDB, and data warehousing solutions." data-icon="🗄️" data-topcolor="#336791" data-gradient="linear-gradient(135deg, #336791 0%, #4479a1 100%)" data-link="#">🗄️</div>
+                        <div class="app-icon git" aria-label="Version Control & DevOps" title="Version Control & DevOps" data-name="Version Control & DevOps" data-description="Git version control, CI/CD pipelines, Docker containerization, and cloud deployment. Collaborative development and automated testing workflows." data-icon="🔧" data-topcolor="#f05032" data-gradient="linear-gradient(135deg, #f05032 0%, #e94e1b 100%)" data-link="#">🔧</div>
                     </div>
                 </div>
             </div>
@@ -3271,6 +3335,43 @@ document.addEventListener('DOMContentLoaded', function() {
     requestAnimationFrame(animateOrbit);
   }
   animateOrbit();
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const icons = document.querySelectorAll('.app-icon');
+  const container = document.querySelector('.orbit-container');
+
+  function getOrbitParams() {
+    const containerRect = container.getBoundingClientRect();
+    const iconSize = icons[0]?.offsetWidth || containerRect.width * 0.16;
+    const centerX = containerRect.width / 2;
+    const centerY = containerRect.height / 2;
+    // Responsive radius: from center to edge minus half icon size and a small margin
+    const radius = Math.min(centerX, centerY) - iconSize / 2 - containerRect.width * 0.04;
+    return { centerX, centerY, radius, iconSize };
+  }
+
+  function animateOrbit() {
+    if (!container) return;
+    const { centerX, centerY, radius, iconSize } = getOrbitParams();
+    const total = icons.length;
+    const now = Date.now() / 1000;
+    icons.forEach((icon, i) => {
+      const angle = (2 * Math.PI * i / total) + (now * 0.5);
+      const x = centerX + radius * Math.cos(angle) - iconSize / 2;
+      const y = centerY + radius * Math.sin(angle) - iconSize / 2;
+      icon.style.left = `${x}px`;
+      icon.style.top = `${y}px`;
+      icon.style.position = 'absolute';
+      icon.style.width = iconSize + 'px';
+      icon.style.height = iconSize + 'px';
+    });
+    requestAnimationFrame(animateOrbit);
+  }
+
+  animateOrbit();
+  window.addEventListener('resize', animateOrbit);
 });
 </script>
 </body>
