@@ -2076,6 +2076,42 @@
                 padding: 8px;
             }
         }
+        .about-title {
+          font-size: 2.8rem;
+          font-weight: 800;
+          margin-bottom: 2rem;
+          background: linear-gradient(135deg, var(--accent-secondary), var(--accent-tertiary));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          letter-spacing: -1px;
+        }
+        .about-card {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 2.5rem 2rem;
+          border-radius: 2rem;
+          background: var(--bg-card);
+          box-shadow: 0 8px 32px 0 var(--shadow-color);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          color: var(--text-primary);
+          font-size: 1.25rem;
+          line-height: 1.8;
+          transition: background 0.3s, color 0.3s;
+          border: 1px solid var(--border-color);
+        }
+        [data-theme="light"] .about-card {
+          background: rgba(255,255,255,0.85);
+          color: #1e293b;
+          border: 1px solid #e0e7ef;
+        }
+        [data-theme="dark"] .about-card {
+          background: rgba(30,41,59,0.7);
+          color: #fff;
+          border: 1px solid rgba(148,163,184,0.1);
+        }
     </style>
 </head>
 <body>
@@ -2211,10 +2247,13 @@
                 </div>
             </div>
             <div class="content-section">
-                <h2 class="title" id="about-title">About Me</h2>
-                <p class="description" id="aboutDescription">
-                    <!-- Text will be typed here -->
-                </p>
+                <h2 class="about-title">About Me</h2>
+                <div class="about-card">
+                    <p>
+                        As a passionate Data Science & AI Engineer, I thrive on solving real-world problems with innovative solutions. My strong foundation in AI, machine learning, data analysis, and programming (especially Python) empowers me to deliver impactful results. I have hands-on experience in developing end-to-end data pipelines, building predictive models, and visualizing insights for business growth.<br><br>
+                        I am always eager to learn, collaborate, and take on new challenges—whether independently or as part of a dynamic team. Let's connect and create something extraordinary together!
+                    </p>
+                </div>
             </div>
         </div>
         <!-- Floating shapes -->
@@ -3182,5 +3221,27 @@
         }
         document.addEventListener('DOMContentLoaded', typeAboutText);
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const icons = document.querySelectorAll('.orbit-icon');
+  const orbitRadius = 120; // distance from center
+  const centerX = 150; // half of container width
+  const centerY = 150; // half of container height
+  function animateOrbit() {
+    const now = Date.now() / 1000; // seconds
+    const total = icons.length;
+    icons.forEach((icon, i) => {
+      // Each icon is offset by its index, and rotates over time
+      const angle = (2 * Math.PI * i / total) + (now * 0.5); // 0.5 = speed
+      const x = centerX + orbitRadius * Math.cos(angle) - 24; // 24 = half icon size
+      const y = centerY + orbitRadius * Math.sin(angle) - 24;
+      icon.style.left = `${x}px`;
+      icon.style.top = `${y}px`;
+    });
+    requestAnimationFrame(animateOrbit);
+  }
+  animateOrbit();
+});
+</script>
 </body>
 </html> 
